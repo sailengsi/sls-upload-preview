@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="red-translucent" />
+        <meta name="apple-mobile-web-app-title" content="" /> 
+        <meta content="telephone=no" name="format-detection" />
+        <meta content="email=no" name="format-detection" />
+        <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+        <meta http-equiv="Pragma" content="no-cache" />
+        <meta http-equiv="Expires" content="0" />
+        <title>sls-upload-preview:上传图片预览</title>
+        <style>
+            #imgPreview{
+                max-width:200px;
+                height: auto;
+            }
+        </style>
+    </head>
+    <body>
+        <input type="file" id='upPreview'>
+        <br><br><br>
+        <img id="imgPreview" src="" />
+
+        <script src="sls-upload-preview.js"></script>
+        <script>
+            var imgPreview=document.getElementById("imgPreview");
+            SlsUploadPreview.upPreview({
+                fileEle:"#upPreview",
+                fn:function(data){
+                    imgPreview.setAttribute("src",data.src);
+                },
+                errorFn:function(msg){
+                    alert(msg);
+                }
+            });
+        </script>
+    </body>
+</html>
